@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>测试页模板</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- referrer policy -->
+    <meta name="referrer" content="never">
+        <link rel="stylesheet" type="text/css" href="css/base.css">
+        <link rel="stylesheet" type="text/css" href="css/public.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+       <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    <script src="js/flexible.js"></script>
+  </head>
+  <body>
+<div class="ceshi">
+ <h1>课后作业</h1>
+ <div class="des">
+ <div class="fubiaoti_border">
+<P class="fubiaoti">作业说明</P></div>
+<P>课程马上结束了课程马上结束了课程马上结束了课程马上结束了课程马上结束了课程马上结束了课程马上结束了课程马上结束了课程马上结束了</P>
+ </div>
+ <div class="ceshi_item">
+<h3>1.问题问题问题问题问题问题问题问题问题问题问题问题</h3>
+<ul>
+<li class="cur"><label><i class="iconfont icon-radio-checked"></i>A.帮助很大</label></li>
+<li><label><i class="iconfont icon-radio"></i>B.有帮助，但不是很大</label></li>
+<li><label><i class="iconfont icon-ICONbiaozhun_fuzhi-"></i><i class="iconfont icon-radio"></i>C.基本没有帮助</label></li>
+<li><label><i class="iconfont icon-duigou"></i><i class="iconfont icon-radio"></i>D.平时就有，所以还好就有，所以还好就有，所以还好</label></li>
+</ul>
+<div class="answer">
+<P class="t">答案解析</P>
+<P>E.【此题没有正确答案】答案解析答案解析答案解析答案解析答案解析答案解析答案解析答案解析答案解析答案解析</P>
+</div>
+ </div>
+
+  <div class="ceshi_item">
+<h3>1.问题问题问题问题问题问题问题问题问题问题问题问题</h3>
+<ul>
+<li class="cur"><label><i class="iconfont icon-radio-checked"></i>A.帮助很大</label></li>
+<li><label><i class="iconfont icon-radio"></i>B.有帮助，但不是很大</label></li>
+<li><label><i class="iconfont icon-ICONbiaozhun_fuzhi-"></i><i class="iconfont icon-radio"></i>C.基本没有帮助</label></li>
+<li><label><i class="iconfont icon-duigou"></i><i class="iconfont icon-radio"></i>D.平时就有，所以还好就还好就有，所以还好</label></li>
+</ul>
+ </div>
+
+
+
+ <div class="ceshi_item">
+<h3>1.问题问题问题问题问题问题问题问题问题问题问题问题</h3>
+<ul>
+<li class="cur"><label><i class="iconfont icon-radio-checked"></i>A.帮助很大</label></li>
+<li><label><i class="iconfont icon-radio"></i>B.有帮助，但不是很大</label></li>
+<li><label><i class="iconfont icon-ICONbiaozhun_fuzhi-"></i><i class="iconfont icon-radio"></i>C.基本没有帮助</label></li>
+<li><label><i class="iconfont icon-duigou"></i><i class="iconfont icon-radio"></i>D.平时就有，所以还好就有，所以还好以还好</label></li>
+</ul>
+ </div>
+
+
+
+ <div class="ceshi_item">
+<h3>1.问题问题问题问题问题问题问题问题问题问题问题问题</h3>
+<ul>
+<li class="cur"><label><i class="iconfont icon-radio-checked"></i>A.帮助很大</label></li>
+<li><label><i class="iconfont icon-radio"></i>B.有帮助，但不是很大</label></li>
+<li><label><i class="iconfont icon-ICONbiaozhun_fuzhi-"></i><i class="iconfont icon-radio"></i>C.基本没有帮助</label></li>
+<li><label><i class="iconfont icon-duigou"></i><i class="iconfont icon-radio"></i>D.平时就有，所以还好就有，所以还好就有，所以还好就有，所以还好就有，所以还好就有，所以还好就有，所以还好就有，所以还好</label></li>
+</ul>
+ </div>
+
+
+ <div class="submitceshi_btn">提交</div>
+<div class="alertbox_wrap" style="display: none;" >
+<div class="alertboxmark"></div>
+<div class="alertbox"><P class="h1">提示</P><P class="text">是否确认提交</P><div class="u-btn" id="knowledge_ok">确认</div><P class="s-fc-orange f-textC cancel">取消</P></div>
+</div>
+
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('.submitceshi_btn').click(function(){
+      $('.alertbox_wrap').show();
+    });
+    $('.cancel').click(function(){
+      $('.alertbox_wrap').hide();
+
+    })
+     $('#knowledge_ok').click(function(){
+      $('.alertbox_wrap').hide();
+      window.location.href='ceshisuccess.html'
+    })
+  })
+  </script>
+  </body>
+</html>

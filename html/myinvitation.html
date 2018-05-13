@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>我的</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- referrer policy -->
+    <meta name="referrer" content="never">
+        <link rel="stylesheet" type="text/css" href="css/base.css">
+        <link rel="stylesheet" type="text/css" href="css/public.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <script src="js/flexible.js"></script>
+      <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+  </head>
+  <body>
+  <div class="invitationpage">
+<h2>邀请进度</h2>
+<P class="invi_num">你已邀请好友<span class="s-fc-orange f-fs6 f-fwb">0</span>人报名</P>
+<div class="invi_des">
+<img src="images/invitation.jpg">
+</div>
+  </div>
+  <div class="sharefooter" id="footer">立即邀请好友</div>
+<div class="alertbox_wrap" style="display: none">
+<div class="alertboxmark"></div>
+<div class="alertbox s-fc-zi f-fwb f-fs4"><P class="">已生成专属邀请卡</P><P class="">前往公众号查看</P><div class="u-btn u-btn-c1 f-mrt1" id="knowledge_ok">知道了</div></div>
+</div>
+    <script type="text/javascript">
+  $(function(){
+    $('.sharefooter').click(function(){
+      $('.alertbox_wrap').show();
+    });
+    $('#knowledge_ok').click(function(){
+      $('.alertbox_wrap').hide();
+    })
+  })
+  </script>
+  </body>
+</html>

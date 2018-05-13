@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>课程模板</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- referrer policy -->
+    <meta name="referrer" content="never">
+        <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+
+    <script src="js/flexible.js"></script>
+    <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+    function RandomNumBoth(Min,Max){
+      var Range = Max - Min;
+      var Rand = Math.random();
+      var num = Min + Math.round(Rand * Range); //四舍五入
+      return num;
+}
+    $(document).ready(function(){
+        var Global={};
+        Global.step=0;
+         Global.flag=false;;
+        $('.coursestep_line').click(function(){
+            Global.step++;
+            if(Global.flag){
+                window.location.href="course.html"
+
+            }else{
+             $.ajax({
+                type: "GET",
+                url: "/pcgway/app001/v1/01",
+                dataType: 'JSON',
+                data:{step:Global.step},
+                async: false,
+                cache: false,
+                success: function (data) {
+                  console.log(data);
+                  
+                },
+                error:function(){
+                    console.log(Global.step);
+                    var data={
+                        type:RandomNumBoth(1,6),
+                        msg:"消息消息消息消息消息消息"+Global.step,
+                    }
+
+                    if(data.type==1){
+ var newhtml='<ul class="message"><li class="teacher"><div class="avatar"> <img src="images/asd.jpg" /></div><div class="msg">'+data.msg+'</div> </li></ul>';  
+                    }
+                     if(data.type==2){
+ var newhtml='<ul class="message"><li class="me"><div class="avatar"> <img src="images/asd.jpg" /></div><div class="msg">'+data.msg+'</div> </li></ul>';  
+                    }
+					if(data.type==4){
+ var newhtml='<div class="singlemsg_newcourse"><div class="bookmark iconfont icon-location-color_bookmark-add"></div><h2>情景分析</h2><P>描述性文字</P></div>';  
+ $('.coursestep_right').show();
+ window.location.href="knowledge.html";
+ $('.coursestep_line').text('进入随堂练习');
+ Global.flag=true;
+
+                    }
+					if(data.type==5){
+ var newhtml='<div class="singlemsg_article"><img src="images/coursetitle.jpg"><h3><span>已阅读</span>Day1复习</h3><P>简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</P></div>';  
+ $('.coursestep_right').show();
+ window.location.href="storydes.html";
+ $('.coursestep_line').text('进入随堂练习');
+ Global.flag=true;
+
+                    }
+                    if(data.type==3){
+ var newhtml='<div class="singlemsg_courseexercise"><h2>课后作业</h2><P>满意度评价</P></div>';  
+ $('.coursestep_right').show();
+ window.location.href="ceshi.html";
+ $('.coursestep_line').text('进入课堂练习');
+ Global.flag=true;
+
+                    }
+
+                   
+
+                    $('.course').append(newhtml);
+                    $(document).scrollTop($(document).height())
+
+                }
+              });
+              }
+        })
+
+
+         var audio = document.getElementById('theaudio');
+            audio.volume = .3;
+            $('.msgaudio sapn').html(audio.duration);
+            $('.msgaudio i').click(function() {
+                event.stopPropagation();//防止冒泡
+                if(audio.paused){ //如果当前是暂停状态
+                    $('.msgaudio i').removeClass("icon-bofang").addClass("icon-zanting");
+                    audio.play(); //播放
+                    return;
+                }else{//当前是播放状态
+                     $('.msgaudio i').removeClass("icon-zanting").addClass("icon-bofang");
+                    audio.pause(); //暂停
+                }
+            });
+
+              //播放完毕
+            $('#theaudio').on('ended', function() {
+                console.log("音频已播放完成");
+                  $('.msgaudio i').removeClass("icon-zanting").addClass("icon-bofang");
+            })
+
+    })
+    </script>
+  </head>
+  <body>
+<div class="course">
+<ul class="message">
+ <li class="teacher">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                         
+                        
+                            <div class="msg">  
+                              
+                                    让时光流逝，我们仍然以参加教研会的李老师为例
+                          
+                        </div>  
+                    </li>  
+                    </ul>
+
+                    <div class="singlemsg_newcourse">
+<div class="bookmark iconfont icon-location-color_bookmark-add"></div>
+<h2>课堂随讲</h2>
+<P>正向激励</P>
+
+</div>
+   <div class="singlemsg_courseexercise">
+
+<h2>课后练习</h2>
+<P>满意度评价</P>
+
+</div>
+<ul class="message">
+ <li class="teacher">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                         
+                        
+                            <div class="msg">  
+                              
+                                    这就是阳江当天，正向激励自己，改变心理状态的一种方法，总结一下
+                          
+                        </div>  
+                    </li>  
+                    </ul>
+                    <div class="singlemsg_pic">
+<div class="bookmark iconfont icon-location-color_bookmark-add"></div>
+<img src="images/coursepic.jpg">
+</div>
+<ul class="message">
+ <li class="teacher">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                         
+                        
+                            <div class="msg">  
+                              
+                                    这就是阳江当天，正向激励自己，改变心理状态的一种方法，总结一下
+                          
+                        </div>  
+                    </li>  
+                    <li class="teacher">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                         
+                        
+                            <div class="msg">  
+                              
+                                    这就是阳江当天，正向激励自己，改变心理状态的一种方法，总结一下
+                          
+                        </div>  
+                    </li>  
+                    </ul>
+<ul class="message">
+                    <!--自己-->  
+                    <li class="me">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                     
+                        
+                            <div class="msg">  
+                                
+                                    好诶，好期待马总的红包！  
+                               
+                        </div>  
+                    </li>  
+                    <li class="teacher">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                         
+                        
+                            <div class="msg">  
+                              
+                                    大家好，不要潜水啦，都出来聊天吧，给你们发红包噢~~ 
+                          
+                        </div>  
+                    </li>  
+                    <!--自己-->  
+                    <li class="me">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                     
+                        
+                            <div class="msg">  
+                                
+                                    好诶，好期待马总的红包！  
+                               
+                        </div>  
+                    </li>  
+                    <li class="teacher">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                         
+                        
+                            <div class="msg">  
+                              
+                                    大家好，不要潜水啦，都出来聊天吧，给你们发红包噢~~ 
+                          
+                        </div>  
+                    </li>  
+                    <!--自己-->  
+                    <li class="me">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                     
+                        
+                            <div class="msg">  
+                                
+                                    好诶，好期待马总的红包！  
+                               
+                        </div>  
+                    </li>  
+                    <li class="teacher">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                         
+                        
+                            <div class="msg">  
+                              
+                                    大家好，不要潜水啦，都出来聊天吧，给你们发红包噢~~ 
+                          
+                        </div>  
+                    </li>  
+                    <li class="teacher">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                         
+                        
+                          <div class="msgaudio">
+                            <i class="iconfont icon-bofang"></i>
+                            <span class="time">00:02</span>
+                                 <audio id="theaudio">                         
+                              <source src="http://fjdx.sc.chinaz.com/Files/DownLoad/sound1/201805/10069.mp3" type="audio/mpeg" />
+                            </audio>
+                            </div>
+                          
+                        
+                    </li>  
+                    <!--自己-->  
+                    <li class="me">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                     
+                        
+                            <div class="msg">  
+                                
+                                    好诶，好期待马总的红包！  
+                               
+                        </div>  
+                    </li>  
+                     <!--自己-->  
+                    <li class="me">  
+                        <div class="avatar">  
+                            <img src="images/asd.jpg" />  
+                        </div>  
+                     
+                        
+                            <div class="msg">  
+                                
+                                    大家好，不要潜水啦，都出来聊天吧，给你们发红包噢~~ 
+                               
+                        </div>  
+                    </li>  
+</ul>
+<div class="singlemsg_video">
+<video width="100%" controls>
+  <source src="http://www.runoob.com/try/demo_source/movie.ogg" type="video/ogg">
+  <source src="css/movie.mp4" type="video/mp4">
+  <source src="css/movie.webm" type="video/webm">
+  <object data="css/movie.mp4" width="320" height="240">
+
+  </object>
+</video>
+</div>
+<div class="singlemsg_pic">
+<div class="bookmark iconfont icon-location-color_bookmark-add"></div>
+<img src="images/coursepic.jpg">
+</div>
+<div class="singlemsg_pic">
+<div class="bookmark iconfont icon-location-color_bookmark-add"></div>
+<img src="images/asd.jpg">
+</div>
+<div class="singlemsg_pic">
+<div class="bookmark iconfont icon-location-color_bookmark-add active"></div>
+<img src="images/asd.jpg">
+</div>
+
+
+<div class="singlemsg_newcourse">
+<div class="bookmark iconfont icon-location-color_bookmark-add"></div>
+<h2>情景分析</h2>
+<P>描述性文字</P>
+</div>
+<div class="singlemsg_article">
+<img src="images/coursetitle.jpg">
+<h3><span>已阅读</span>Day1复习</h3>
+<P>简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</P>
+</div>
+
+
+</div>
+<div id="coursestep">
+<div class="coursestep_right" onclick="window.location.href='mynote.html'"><i class="iconfont icon-nc-test-outline-px_bookmark-add"></i><i class="iconfont icon-sanjiaoxing-right"></i></div>
+<div class="coursestep_line">下一步</div>
+<div class="coursestep_left" onclick="window.location.href='courselist.html'"><i class="iconfont icon-sanjiaoxing-left"></i><i class="iconfont icon-wendang"></i></div>
+
+</div>
+
+
+
+
+  </body>
+</html>
